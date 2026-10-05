@@ -24,10 +24,10 @@ function App() {
     setpassword(pass);
   }, [length, number, character]);
 
-  const copyToClipboard = useCallback(() => {
-    passwordRef.current?.select();
-    window.navigator.clipboard.writeText(password);
-  }, [password]);
+const copyToClipboard = useCallback(() => {
+  window.navigator.clipboard.writeText(password);
+  window.alert("Copied to clipboard");
+}, [password]);
 
   useEffect(() => {
     passwordGenerator();
@@ -116,7 +116,7 @@ function App() {
             value={length}
             onChange={(e) => setlength(Number(e.target.value))}
             min={1}
-            max={200}
+            max={20000}
             className="w-16 py-1 px-2 border rounded"
           />
 
